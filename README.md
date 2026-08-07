@@ -84,3 +84,23 @@ Repository Layer
 ADO.NET
    │
 SQL Server
+
+---
+
+## 👨‍💻 Developer
+
+**Kunal Ravindra Suryawanshi**
+
+.NET Full Stack Developer | Passionate about building secure, scalable, and user-friendly web applications using ASP.NET Core MVC, Web API, and SQL Server.
+
+📧 **Email:**  
+suryawanshikunal011@gmail.com
+
+🔗 **LinkedIn:**  
+https://linkedin.com/in/kunalsuryawanshi53
+
+💻 **GitHub Profile:**  
+https://github.com/KunalSuryawanshi53
+
+📁 **Project Repository:**  
+https://github.com/KunalSuryawanshi53/Asset-Management-System
