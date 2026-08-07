@@ -1,0 +1,53 @@
+﻿@model AssetManagement.MVC.Models.DashboardReportViewModel
+
+@{
+    ViewData["Title"] = "Dashboard";
+}
+
+<div class="container mt-4">
+
+    <h2 class="mb-4">
+        Dashboard
+    </h2>
+
+    <div class="row">
+
+        <div class="col-md-3 mb-3">
+            <div class="card text-white bg-primary shadow">
+                <div class="card-body text-center">
+                    <h5>Total Assets</h5>
+                    <h2>@Model?.TotalAssets</h2>
+                </div>
+            </div>
+        </div>
+
+        <div class="col-md-3 mb-3">
+            <div class="card text-white bg-success shadow">
+                <div class="card-body text-center">
+                    <h5>Available Assets</h5>
+                    <h2>@Model?.AvailableAssets</h2>
+                </div>
+            </div>
+        </div>
+
+        <div class="col-md-3 mb-3">
+            <div class="card text-white bg-warning shadow">
+                <div class="card-body text-center">
+                    <h5>Assigned Assets</h5>
+                    <h2>@Model?.AssignedAssets</h2>
+                </div>
+            </div>
+        </div>
+
+        <div class="col-md-3 mb-3">
+            <div class="card text-white bg-danger shadow">
+                <div class="card-body text-center">
+                    <h5>Returned Assets</h5>
+                    <h2>@Model?.ReturnedAssets</h2>
+                </div>
+            </div>
+        </div>
+
+    </div>
+
+</div>

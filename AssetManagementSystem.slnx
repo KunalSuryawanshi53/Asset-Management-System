@@ -1,0 +1,4 @@
+<Solution>
+  <Project Path="AssetManagement.API/AssetManagement.API.csproj" />
+  <Project Path="AssetManagement.MVC/AssetManagement.MVC.csproj" Id="098151b0-ae19-49bd-bd4a-4a95affcc874" />
+</Solution>

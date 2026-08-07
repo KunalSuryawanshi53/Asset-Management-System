@@ -1,0 +1,110 @@
+﻿@model IEnumerable<AssetManagement.MVC.Models.AssetAssignmentViewModel>
+
+@{
+    ViewData["Title"] = "Asset Assignments";
+    Layout = "~/Views/Shared/_Layout.cshtml";
+}
+
+@if (TempData["Success"] != null)
+{
+    <div class="alert alert-success alert-dismissible fade show">
+        @TempData["Success"]
+
+        <button type="button"
+                class="btn-close"
+                data-bs-dismiss="alert">
+        </button>
+    </div>
+}
+
+<div class="d-flex justify-content-between align-items-center mb-3">
+
+    <h2>Asset Assignments</h2>
+
+    <a asp-action="Assign"
+       class="btn btn-primary">
+        Assign Asset
+    </a>
+
+</div>
+
+<table class="table table-bordered table-hover">
+
+    <thead class="table-dark">
+        <tr>
+            <th>Employee</th>
+            <th>Asset</th>
+            <th>Assigned Date</th>
+            <th>Returned Date</th>
+            <th>Remarks</th>
+            <th width="130">Action</th>
+        </tr>
+    </thead>
+
+    <tbody>
+
+        @if (Model != null && Model.Any())
+        {
+            foreach (var item in Model)
+            {
+                <tr>
+
+                    <td>@item.EmployeeName</td>
+
+                    <td>@item.AssetName</td>
+
+                    <td>@item.AssignedDate.ToString("dd-MMM-yyyy")</td>
+
+                    <td>
+                        @(item.ReturnedDate?.ToString("dd-MMM-yyyy") ?? "Not Returned")
+                    </td>
+
+                    <td>@item.Remarks</td>
+
+                    <td>
+
+                        @if (item.ReturnedDate == null)
+                        {
+                            <form asp-action="Return"
+                                  method="post">
+
+                                <input type="hidden"
+                                       name="assignmentId"
+                                       value="@item.AssignmentId" />
+
+                                <button type="submit"
+                                        class="btn btn-success btn-sm">
+                                    Return
+                                </button>
+
+                            </form>
+                        }
+                        else
+                        {
+                            <span class="badge bg-secondary">
+                                Returned
+                            </span>
+                        }
+
+                    </td>
+
+                </tr>
+            }
+        }
+        else
+        {
+            <tr>
+
+                <td colspan="6"
+                    class="text-center text-danger">
+
+                    No Asset Assignments Found
+
+                </td>
+
+            </tr>
+        }
+
+    </tbody>
+
+</table>

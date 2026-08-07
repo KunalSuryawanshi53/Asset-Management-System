@@ -1,0 +1,124 @@
+﻿@model AssetManagement.MVC.Models.AddAssetAssignmentViewModel
+
+@{
+    ViewData["Title"] = "Assign Asset";
+    Layout = "~/Views/Shared/_Layout.cshtml";
+}
+
+<div class="container mt-4">
+
+    <div class="card shadow">
+
+        <div class="card-header bg-primary text-white">
+            <h4 class="mb-0">Assign Asset</h4>
+        </div>
+
+        <div class="card-body">
+
+            <form asp-action="Assign" method="post">
+
+                <div asp-validation-summary="ModelOnly"
+                     class="text-danger mb-3">
+                </div>
+
+                <div class="row">
+
+                    <div class="col-md-6 mb-3">
+
+                        <label class="form-label">
+                            Employee
+                        </label>
+
+                        <select asp-for="EmployeeId"
+                                class="form-select">
+
+                            <option value="">
+                                -- Select Employee --
+                            </option>
+
+                            @foreach (var employee in ViewBag.Employees)
+                            {
+                                <option value="@employee.EmployeeId">
+                                    @employee.FirstName @employee.LastName
+                                </option>
+                            }
+
+                        </select>
+
+                        <span asp-validation-for="EmployeeId"
+                              class="text-danger">
+                        </span>
+
+                    </div>
+
+                    <div class="col-md-6 mb-3">
+
+                        <label class="form-label">
+                            Asset
+                        </label>
+
+                        <select asp-for="AssetId"
+                                class="form-select">
+
+                            <option value="">
+                                -- Select Asset --
+                            </option>
+
+                            @foreach (var asset in ViewBag.Assets)
+                            {
+                                <option value="@asset.AssetId">
+                                    @asset.AssetName
+                                </option>
+                            }
+
+                        </select>
+
+                        <span asp-validation-for="AssetId"
+                              class="text-danger">
+                        </span>
+
+                    </div>
+
+                    <div class="col-12 mb-3">
+
+                        <label asp-for="Remarks"
+                               class="form-label">
+                        </label>
+
+                        <textarea asp-for="Remarks"
+                                  class="form-control"
+                                  rows="3">
+                        </textarea>
+
+                        <span asp-validation-for="Remarks"
+                              class="text-danger">
+                        </span>
+
+                    </div>
+
+                </div>
+
+                <button type="submit"
+                        class="btn btn-success">
+                    Assign Asset
+                </button>
+
+                <a asp-action="Index"
+                   class="btn btn-secondary">
+                    Cancel
+                </a>
+
+            </form>
+
+        </div>
+
+    </div>
+
+</div>
+
+@section Scripts
+{
+    @{
+        await Html.RenderPartialAsync("_ValidationScriptsPartial");
+    }
+}

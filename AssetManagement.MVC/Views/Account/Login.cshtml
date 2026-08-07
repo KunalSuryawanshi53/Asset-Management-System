@@ -1,0 +1,71 @@
+﻿@model AssetManagement.MVC.Models.LoginViewModel
+
+@{
+    ViewData["Title"] = "Login";
+    Layout = "_LoginLayout";
+}
+
+<div class="container mt-5">
+    <div class="row justify-content-center">
+
+        <div class="col-md-4">
+
+            <div class="card shadow">
+
+                <div class="card-header text-center">
+                    <h3>Login</h3>
+                </div>
+
+                <div class="card-body">
+
+                    <form asp-action="Login" method="post">
+
+                        <!-- Model Validation -->
+                        <div asp-validation-summary="ModelOnly" class="text-danger mb-3"></div>
+
+                        <!-- Username -->
+                        <div class="mb-3">
+                            <label asp-for="Username" class="form-label"></label>
+
+                            <input asp-for="Username"
+                                   class="form-control"
+                                   placeholder="Enter Username" />
+
+                            <span asp-validation-for="Username"
+                                  class="text-danger"></span>
+                        </div>
+
+                        <!-- Password -->
+                        <div class="mb-3">
+                            <label asp-for="Password" class="form-label"></label>
+
+                            <input asp-for="Password"
+                                   class="form-control"
+                                   placeholder="Enter Password" />
+
+                            <span asp-validation-for="Password"
+                                  class="text-danger"></span>
+                        </div>
+
+                        <!-- Login Button -->
+                        <div class="d-grid">
+                            <button type="submit" class="btn btn-primary">
+                                Login
+                            </button>
+                        </div>
+
+                    </form>
+
+                </div>
+
+            </div>
+
+        </div>
+
+    </div>
+</div>
+
+@section Scripts
+{
+    <partial name="_ValidationScriptsPartial" />
+}

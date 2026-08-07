@@ -1,0 +1,88 @@
+﻿@model IEnumerable<AssetManagement.MVC.Models.CategoryViewModel>
+
+@{
+    ViewData["Title"] = "Categories";
+    Layout = "~/Views/Shared/_Layout.cshtml";
+}
+
+@if (TempData["Success"] != null)
+{
+    <div class="alert alert-success alert-dismissible fade show" role="alert">
+        @TempData["Success"]
+
+        <button type="button"
+                class="btn-close"
+                data-bs-dismiss="alert">
+        </button>
+    </div>
+}
+
+<div class="d-flex justify-content-between align-items-center mb-3">
+
+    <h2>Category Management</h2>
+
+    <a asp-action="Add"
+       class="btn btn-primary">
+        Add Category
+    </a>
+
+</div>
+
+<table class="table table-bordered table-hover">
+
+    <thead class="table-dark">
+        <tr>
+            <th>Category Id</th>
+            <th>Category Name</th>
+            <th width="180">Action</th>
+        </tr>
+    </thead>
+
+    <tbody>
+
+        @if (Model != null && Model.Any())
+        {
+            foreach (var category in Model)
+            {
+                <tr>
+
+                    <td>@category.CategoryId</td>
+
+                    <td>@category.CategoryName</td>
+
+                    <td>
+
+                        <a asp-action="Edit"
+                           asp-route-id="@category.CategoryId"
+                           class="btn btn-warning btn-sm">
+                            Edit
+                        </a>
+
+                        <a asp-action="Delete"
+                           asp-route-id="@category.CategoryId"
+                           class="btn btn-danger btn-sm">
+                            Delete
+                        </a>
+
+                    </td>
+
+                </tr>
+            }
+        }
+        else
+        {
+            <tr>
+
+                <td colspan="3"
+                    class="text-center text-danger">
+
+                    No Categories Found
+
+                </td>
+
+            </tr>
+        }
+
+    </tbody>
+
+</table>
