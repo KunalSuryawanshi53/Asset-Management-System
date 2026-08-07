@@ -12,7 +12,6 @@ A full-stack Asset Management System developed using **ASP.NET Core MVC**, **ASP
 - HTML5
 - CSS3
 - Bootstrap 5
-- JavaScript
 - HttpClient
 
 ### Backend
